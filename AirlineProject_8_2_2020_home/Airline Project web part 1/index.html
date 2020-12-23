@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body onload="getCountries()">
+    Origin Country:
+    <select name="origincountries" id="origincountries">
+        <option value="none">---</option>
+    </select>
+
+    <br>
+    Destination Country:
+    <select name="destinationcountries" id="destinationcountries">
+        <option value="none">---</option>
+    </select>
+
+    <br>
+    Sort By:
+    <select name="sorting" id="sorting">
+        <option value="ID">Flight ID</option>
+        <option value="DEPARTURE_TIME">Departure Time</option>
+    </select>
+
+    <br>
+    <button onclick="searchFlights()">Search</button>
+
+    <br>
+    <hr>
+    <br>
+
+    <table id="flightstable" border="2">
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    @* nope... no need for that... *@
+    @*<link rel="stylesheet" href="~/Content/myStyle/myStyle.css" />*@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="~/Scripts/MyScripts/MyScript.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <nav class="nav" style="background-color:lightgrey;justify-content:center">
+        <button class="nav-link btn btn-primary" type="button" onclick="backToMain()">back to main page</button>
+        <a class="nav-link" href="DepartingFlights">Departing Flights</a>
+        <a class="nav-link" href="LandingFlights">Landing Flights</a>
+    </nav>
+
+    <nav class="nav" style="background-color:lightblue;justify-content:center">
+        <form style="margin: 10px" method="post" action="http://localhost:9002/page/SearchFlightsResults">
+
+            <select name="SearchFlights">
+                <option value="Both">Departing and landing flights</option>
+                <option value="Departing">Departing flights</option>
+                <option value="Landing">Landing flights</option>
+            </select>
+
+            <select name="SearchBy">
+                <option value="None">Search by</option>
+                <option value="AC.AIRLINE_NAME">Airline Name</option>
+                <option value="C1.COUNTRY_NAME">Origin Country</option>
+                <option value="C2.COUNTRY_NAME">Destination Country</option>
+                <option value="F.ID">Flight Number</option>
+            </select>
+            <input name="SearchText" type="text" placeholder="Your search here" />
+
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </nav>
+    <div align="center">
+        <b>To get all the flights (ordered by ID), leave all fields on default and press "Search"</b>
+    </div>
+    
+    @*<script>
+
+        function backToMain() {
+
+            //go back to main page depending on user type:
+            const userInfo = JSON.parse(localStorage.getItem("userinfo"))
+            if (userInfo == null)
+                window.location.href = 'http://localhost:3001/AnonymousUser';
+            else {
+                switch (userInfo.type) {
+                    case "Customer": window.location.href = 'http://localhost:3000/'; break;
+                    case "Airline": window.location.href = 'http://localhost:3002/'; break;
+                    case "Admin": window.location.href = 'http://localhost:3003/'; break;
+                    default: window.location.href = 'http://localhost:3001/AnonymousUser'; break;
+                }
+            }
+            //displayDate() ??
+        };
+
+                //var link = document.createElement('a');
+                //link.setAttribute('href', "#");
+                //if (link.addEventListener) {
+                //    link.addEventListener('click', function () {
+                //        alert('clicked');
+                //    });
+                //} else if (link.attachEvent) {
+                //    link.attachEvent('onclick', function () {
+                //        alert('clicked');
+                //    });
+                //}
+
+    </script>*@
+</body>
+</html>

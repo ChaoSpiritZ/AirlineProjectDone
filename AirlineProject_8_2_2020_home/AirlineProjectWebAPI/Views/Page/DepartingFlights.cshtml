@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <link rel="stylesheet" href="~/Content/myStyle/myStyle.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="~/Scripts/MyScripts/MyScript.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div align="center">
+
+        <nav class="nav" style="background-color:lightgrey;justify-content:center">
+            <button class="nav-link btn btn-primary" type="button" onclick="backToMain()">back to main page</button>
+            <a class="nav-link" href="LandingFlights">Landing Flights</a>
+            <a class="nav-link" href="SearchFlights">Search Flights</a>
+        </nav>
+
+        <br />
+        <b>Showing flights that depart up to 12 hours ahead</b>
+
+        <table border="1">
+            <tr>
+                <th>Flight (Airline + Id)</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departing At</th>
+            </tr>
+            @foreach (var flight in ViewBag.Flights)
+            {
+                <tr>
+                    <td>@flight.AirlineCompanyName @flight.ID</td>
+                    <td>@flight.OriginCountryName</td>
+                    <td>@flight.DestinationCountryName</td>
+                    <td>@flight.DepartureTime</td>
+                    <td><button class="btn btn-success" onclick="purchaseTicket(@flight.ID)">Purchase ticket</button></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @*<script>
+
+        function purchaseTicket(flightId) {
+            //localStorage.setItem("userinfo", '{"type":"Customer","id":"367","firstName":"Belinda","lastName":"Dupont","userName":"ticklishdog163","password":"wives","address":"belinda.dupont@example.com","phoneNo":"077 962 83 18","creditCardNumber":"23b557d0-c96d-4697-b0fd-21770c43959e","flightId":"1852"}')
+            const userInfo = JSON.parse(localStorage.getItem("userinfo"))
+            if (userInfo != null) {
+                if (userInfo.type == "Customer") {
+                    window.location.href = 'http://localhost:3000/buyticket';
+                }
+            }
+            else { //YES! THE 'ELSE' IS IMPORTANT!
+                window.location.href = 'http://localhost:3001?flightId=' + flightId;
+            }
+            //also check if type is customer to send directly (maybe later, or not)
+        }
+
+        function backToMain() {
+
+            //go back to main page depending on user type:
+            const userInfo = JSON.parse(localStorage.getItem("userinfo"))
+            if (userInfo == null)
+                window.location.href = 'http://localhost:3001/AnonymousUser';
+            else {
+                switch (userInfo.type) {
+                    case "Customer": window.location.href = 'http://localhost:3000/'; break;
+                    case "Airline": window.location.href = 'http://localhost:3002/'; break;
+                    case "Admin": window.location.href = 'http://localhost:3003/'; break;
+                    default: window.location.href = 'http://localhost:3001/AnonymousUser'; break;
+                }
+            }
+        }
+
+    </script>*@
+</body>
+</html>

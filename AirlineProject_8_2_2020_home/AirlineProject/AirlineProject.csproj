@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9A1B9A5-DD63-434E-8B97-3D4BDF20311D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AirlineProject</RootNamespace>
+    <AssemblyName>AirlineProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyNetQ, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyNetQ.5.2.0\lib\net461\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.6.1.0\lib\net461\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.5.9.0\lib\net45\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.9.0\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.5.9.0\lib\net45\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.9.0\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.4.7.1\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator.cs" />
+    <Compile Include="CopyMachine.cs" />
+    <Compile Include="CustomExceptions\AirlineNotFoundException.cs" />
+    <Compile Include="CustomExceptions\CountryAlreadyExistsException.cs" />
+    <Compile Include="CustomExceptions\InaccessibleCustomerException.cs" />
+    <Compile Include="Facades\DBGeneratorFacade.cs" />
+    <Compile Include="FlyingCenterSystem.cs" />
+    <Compile Include="CustomInterfaces\ILoginToken.cs" />
+    <Compile Include="CustomExceptions\CountryNotFoundException.cs" />
+    <Compile Include="CustomExceptions\AirlineNameAlreadyExistsException.cs" />
+    <Compile Include="Facades\AnonymousUserFacade.cs" />
+    <Compile Include="CustomExceptions\EmptyPasswordException.cs" />
+    <Compile Include="CustomExceptions\EmptyTokenException.cs" />
+    <Compile Include="CustomInterfaces\FacadeInterfaces\IAnonymousUserFacade.cs" />
+    <Compile Include="CustomInterfaces\FacadeInterfaces\ILoggedInAdministratorFacade.cs" />
+    <Compile Include="CustomInterfaces\FacadeInterfaces\ILoggedInAirlineFacade.cs" />
+    <Compile Include="CustomInterfaces\FacadeInterfaces\ILoggedInCustomerFacade.cs" />
+    <Compile Include="CustomInterfaces\ILoginService.cs" />
+    <Compile Include="Facades\LoggedInAdministratorFacade.cs" />
+    <Compile Include="Facades\LoggedInAirlineFacade.cs" />
+    <Compile Include="Facades\LoggedInCustomerFacade.cs" />
+    <Compile Include="IRedisObject.cs" />
+    <Compile Include="LoginHelper.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="LoginToken.cs" />
+    <Compile Include="CustomExceptions\FlightAlreadyTookOffException.cs" />
+    <Compile Include="CustomExceptions\FlightNotFoundException.cs" />
+    <Compile Include="CustomExceptions\InaccessibleAirlineCompanyException.cs" />
+    <Compile Include="CustomExceptions\InaccessibleFlightException.cs" />
+    <Compile Include="CustomExceptions\InaccessibleTicketException.cs" />
+    <Compile Include="CustomExceptions\InvalidFlightDateException.cs" />
+    <Compile Include="CustomExceptions\InvalidPOCOException.cs" />
+    <Compile Include="CustomExceptions\NoMoreTicketsException.cs" />
+    <Compile Include="CustomExceptions\TicketAlreadyExistsException.cs" />
+    <Compile Include="CustomExceptions\TicketNotFoundException.cs" />
+    <Compile Include="MessageCarrier.cs" />
+    <Compile Include="ObjectExtension.cs" />
+    <Compile Include="POCOs\AirlineCompany.cs" />
+    <Compile Include="DAOMSSQLs\AirlineDAOMSSQL.cs" />
+    <Compile Include="AirlineProjectConfig.cs" />
+    <Compile Include="POCOs\Country.cs" />
+    <Compile Include="DAOMSSQLs\CountryDAOMSSQL.cs" />
+    <Compile Include="POCOs\Customer.cs" />
+    <Compile Include="DAOMSSQLs\CustomerDAOMSSQL.cs" />
+    <Compile Include="Facades\FacadeBase.cs" />
+    <Compile Include="POCOs\Flight.cs" />
+    <Compile Include="DAOMSSQLs\FlightDAOMSSQL.cs" />
+    <Compile Include="CustomInterfaces\DAOInterfaces\IAirlineDAO.cs" />
+    <Compile Include="CustomInterfaces\IBasicDB.cs" />
+    <Compile Include="CustomInterfaces\DAOInterfaces\ICountryDAO.cs" />
+    <Compile Include="CustomInterfaces\DAOInterfaces\ICustomerDAO.cs" />
+    <Compile Include="CustomInterfaces\DAOInterfaces\IFlightDAO.cs" />
+    <Compile Include="CustomInterfaces\IPoco.cs" />
+    <Compile Include="CustomInterfaces\DAOInterfaces\ITicketDAO.cs" />
+    <Compile Include="CustomInterfaces\IUser.cs" />
+    <Compile Include="POCOs\FullFlightData.cs" />
+    <Compile Include="POCOs\POCOValidator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Facades\SystemFacade.cs" />
+    <Compile Include="Facades\OldTestingFunctionsFacade.cs" />
+    <Compile Include="POCOs\Ticket.cs" />
+    <Compile Include="DAOMSSQLs\TicketDAOMSSQL.cs" />
+    <Compile Include="CustomExceptions\UsernameAlreadyExistsException.cs" />
+    <Compile Include="CustomExceptions\UserNotFoundException.cs" />
+    <Compile Include="CustomExceptions\WrongPasswordException.cs" />
+    <Compile Include="Facades\TestingFacade.cs" />
+    <Compile Include="Facades\UIFacade.cs" />
+    <Compile Include="RabbitMQService.cs" />
+    <Compile Include="RedisAccessLayer.cs" />
+    <Compile Include="RedisConfig.cs" />
+    <Compile Include="RedisObject.cs" />
+    <Compile Include="ResponseCarrier.cs" />
+    <Compile Include="TemplateDesignPattern\MapToColumnAttribute.cs" />
+    <Compile Include="TemplateDesignPattern\MyTableNameAttribute.cs" />
+    <Compile Include="TemplateDesignPattern\QueryInsertItem.cs" />
+    <Compile Include="TemplateDesignPattern\QueryRemove.cs" />
+    <Compile Include="TemplateDesignPattern\QuerySelectAll.cs" />
+    <Compile Include="TemplateDesignPattern\QueryStoredSelect.cs" />
+    <Compile Include="TemplateDesignPattern\QueryTemplateBase.cs" />
+    <Compile Include="TemplateDesignPattern\QueryUpdate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="airlines.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
